@@ -1,0 +1,23 @@
+package tests;
+
+import org.junit.jupiter.api.Test;
+
+import block.Vote;
+import blockchain.Votechain;
+
+public class testVotechain {
+	
+	
+	// But : La modification d'un bloc est impossible
+	@Test
+	public void invalideModificationVote() {
+		Votechain v = new Votechain();
+		Vote previousVote = v.votes.get(3);
+		String auteurNewVote = "hackeur";
+		String dataNewVote = "Marine LePen";
+		Vote newVote = new Vote(auteurNewVote,dataNewVote);
+		assert(!v.modifyVote(previousVote,newVote));
+		
+	}
+
+}
